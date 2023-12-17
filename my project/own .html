@@ -4,10 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natural products</title>
-    <link rel="stylesheet" href="..">
-    
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        @keyframes ColorShade
+        {
+            from {
+                color:red;
+            }
+            20% {
+                color:green;
+            }
+            40% {
+                color:yellow;
+            }
+            50%{
+                color: white;
+            }
+            to {
+                color:blue;
+            }
+        }
+       .title{
+        font-weight: bold;
+        color: white;
+        font-size: 45px;
+        font-size: Algerian;
+        animation-name: ColorShade;
+        animation-duration: 3000ms;
+        animation-iteration-count: infinite;
+       }
+
+    </style>
+    <script type="text/javascript">
+         function LoadDateTime(){
+           var now = new Date();
+           var weekdays = ["sun","mon","tue","wed","thu","fri","sat","sun"];
+           var months = ["jan","feb","mar","apr","may","jun","july","aug","sep","oct","nov","dec"];
+
+            document.getElementById("clock").innerHTML = now.toLocaleDateString();
+            document.getElementById("cal").innerHTML = `${now.getDate()}${weekdays[now.getDay()]},${months[now.getMonth()]}${now.getFullYear()}`
+        }
+        function LoadMessage(){
+             var now = new Date();
+             var hrs = now.getHours();
+             var msg = document.getElementById("msg");
+             var gifimg = document.getElementById("gifimg")
+
+            if(hrs>=0 && hrs<=12){
+                msg.innerHTML = "GOOD MORNING !"
+                gifimg.src="../publlic/images/gm.gif";
+            } 
+            else if(hrs>=12 && hrs<=17){
+                msg.innerHTML = "GOOD AFTERNOON!"
+                gifimg.src="../publlic/images/ga.gif";
+            }
+            else{
+                msg.innerHTML = "GOOD EVENING 1"
+                gifimg.src = "../publlic/images/ge.gif";
+            }
+        }
+        function bodyload(){
+            LoadDateTime();
+            LoadMessage();
+        }
+        </script>
+    </script>
 </head>
-<body>
+<body class="container-fluid" onload="bodyload()">
+    <header class="d-flex bg-danger p-2 text-white justify-content-between">
+        <div>
+            <span class="title">NATURAL PRODUCTS</span>
+        </div>
+        <nav class="d-flex p-3 ">
+            <span class="h5 p-2">HOME</span>
+            <span class="h5 p-2">ABOUT</span>
+            <span class="h5 p-2">SUPPORT</span>
+        </nav>
+        <div class="d-flex ">
+            <span class="bi bi-house p-3">Home</span>
+            <span class="bbi bi-clock-fill p-3 "></span>
+            <span class="bi bi-cart-fill p-3"></span>
+        </div>
+    </header>
+    <article class="bg-dark text-white p-2 mt-0 text-center">
+        <span class="bi bi-lightning-fill text-warning"></span>
+        <span>BEST QULITY PRODUCTS FROM DIRECT FARMS</span>
+        <span class="bi bi-lightning-fill text-warning"></span>
+        <nav class="d-flex bg-dark text-white p-2 justify-content-between">
+            
+            <div>
+                <span class="bi bi-calendar me-2" id="cal"></span>
+                <span class="bi bi-clock me-2" id="clock"></span>
+            </div>
+        </nav>
+            <article class="p-1 text-center mt-3">
+            <img src="" alt="" id="gifimg" width="50" height="50">
+            <span id="msg"></span>
+    </article>
+    <section>
+        <nav>
+
+        </nav>
+        <img src="../publlic/images/own.jpg" class="w-50">
+         
+    </section>
+
     
 </body>
 </html>
